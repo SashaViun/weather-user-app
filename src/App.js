@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import UserList from './components/UserList'; // Компонент списку користувачів
 import SavedUsers from './components/SavedUsers'; // Компонент збережених користувачів
 import './App.css'; // Стилі для додатку

@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import UserList from './components/UserList'; // Компонент списку користувачів
+import SavedUsers from './components/SavedUsers'; // Компонент збережених користувачів
+import './App.css'; // Стилі для додатку
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* Навігаційне меню */}
+      <nav className="p-4 bg-gray-800 text-white sticky top-0 z-50 shadow-md">
+        <div className="container mx-auto flex justify-between">
+          <Link to="/" className="text-xl">User List</Link> {/* Посилання на головну сторінку */}
+          <Link to="/saved-users" className="text-xl">Saved Users</Link> {/* Посилання на збережених користувачів */}
+        </div>
+      </nav>
+
+      {/* Оголошення маршрутів */}
+      <Routes>
+        <Route path="/" element={<UserList />} /> {/* Список користувачів */}
+        <Route path="/saved-users" element={<SavedUsers />} /> {/* Збережені користувачі */}
+      </Routes>
+    </Router>
   );
 }
 
